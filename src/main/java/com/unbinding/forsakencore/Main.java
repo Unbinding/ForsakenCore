@@ -1,6 +1,11 @@
 package com.unbinding.forsakencore;
 
+import com.unbinding.forsakencore.cmds.Adminchatcommand;
+import com.unbinding.forsakencore.cmds.AlertCommand;
+import com.unbinding.forsakencore.cmds.DispatchCommand;
+import com.unbinding.forsakencore.cmds.ServerCommand;
 import com.unbinding.forsakencore.listeners.MessageListener;
+import com.unbinding.forsakencore.managers.MM;
 import lilypad.client.connect.api.Connect;
 import lilypad.client.connect.api.request.RequestException;
 import lilypad.client.connect.api.request.impl.MessageRequest;
@@ -19,6 +24,8 @@ import java.util.logging.Level;
  */
 public class Main extends JavaPlugin {
 
+    //MessageManager
+    MM mm;
     //Instance Variables
     public HashMap<String, String> serverList = new HashMap<String, String>();
     public int totalSendCount = 0;
@@ -36,6 +43,7 @@ public class Main extends JavaPlugin {
         connect = getServer().getServicesManager().getRegistration(Connect.class).getProvider();
         connect.registerEvents(new MessageListener(connect, this));
         registerCommands();
+        mm = new MM();
         this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable(){
                 public void run(){
                     syncServers();
@@ -59,9 +67,14 @@ public class Main extends JavaPlugin {
     }
 
     public void registerCommands(){
-
+        new Adminchatcommand(this);
+        new ServerCommand(this);
+        new AlertCommand(this);
+        new DispatchCommand(this);
     }
 
-
+    public Connect getConnect(){
+        return connect;
+    }
 
 }

@@ -2,4 +2,19 @@ name: ForsakenCore
 main: com.unbinding.forsakencore.Main
 version: 1.0
 commands:
+  a:
+    description: Talk in our in-game staff chat.
+  alert:
+    description: Send the message to the whole network.
+  dispatch:
+    description: Send a command to all servers.
+  server:
+    description: Connect to a different server.
 permissions:
+  forsakencore.*:
+    description: Access to all commands.
+    children:
+      forsakencore.dispatch: true
+      forsakencore.adminchat: true
+      forsakencore.server: true
+      forsakencore.alert: true

@@ -1,0 +1,21 @@
+#ForsakenCore language file
+#Customizable messages!
+#Permission denied message
+nopermission: '&cYou do not have permission.'
+#Alert prefix
+alertprefix: '&c[Alert] '
+#Server command arguments.
+servercommand: '&c/server <server>'
+#Admin chat command arguments.
+adminchatcommand: '&c/a <message>'
+#Dispatch command arguments.
+dispatchcommand: '&c/dispatch <command>'
+#Alert command arguments
+alertcommand: '&c/alert <message>'
+#Confirmation messages
+dispatchsent: '&cThis command has been sent to all servers.'
+#Formats
+adminchatformat: '&8[&cSTAFF&8] &c{SERVERNAME} &8| &c{PLAYER} &8| &c{MESSAGE}'
+currentserverformat: '&cYou are currently connected to: &7{SERVER}'
+serverlistformat: '&cYou can currently connect to the following servers: &7{SERVERLIST}'
+commacolor: '&7, &c'
